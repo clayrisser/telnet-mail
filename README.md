@@ -7,7 +7,7 @@
 ### SMTP 25
 
 **shell command**
-```sh
+```
 telnet mail.example.com 25
 ```
 
@@ -20,7 +20,7 @@ Escape character is '^]'.
 ```
 
 **telnet command**
-```sh
+```
 EHLO localhost
 ```
 
@@ -39,8 +39,7 @@ _result_
 ```
 
 **telnet command**
-
-```sh
+```
 AUTH LOGIN
 ```
 
@@ -50,7 +49,7 @@ _result_
 ```
 
 **telnet command**
-```sh
+```
 aGVsbG8=
 ```
 
@@ -60,11 +59,64 @@ _result_
 ```
 
 **telnet command**
-```sh
+```
 d29ybGQ=
 ```
 
 _result_
 ```
 235 2.7.0 Authentication successful
+```
+
+**telnet command**
+```
+MAIL FROM: email@example.com
+```
+
+_result_
+```
+250 2.1.0 Ok
+```
+
+**telnet command**
+```
+RCPT TO: email@example.org
+```
+
+_result_
+```
+250 2.1.5 Ok
+```
+
+**telnet command**
+```
+DATA
+```
+
+_result_
+```
+354 End data with <CR><LF>.<CR><LF>
+```
+
+**telnet command**
+```
+Subject: Hello
+
+world
+.
+```
+
+_result_
+```
+250 2.0.0 Ok: queued as 941731C4
+```
+
+**telnet command**
+```
+QUIT
+```
+_result_
+```
+221 2.0.0 Bye
+Connection closed by foreign host.
 ```
