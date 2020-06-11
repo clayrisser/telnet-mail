@@ -270,3 +270,128 @@ QUIT
 221 2.0.0 Bye
 Connection closed by foreign host.
 ```
+
+## IMAP
+
+### IMAP 143
+
+```
+telnet mail.example.com 143
+```
+```
+Trying 93.184.216.34...
+Connected to mail.example.com.
+Escape character is '^]'.
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ STARTTLS LOGINDISABLED] Dovecot ready.
+```
+---
+```
+. LOGIN hello world
+```
+
+### IMAP 993
+
+```
+openssl s_client -connect mail.example.com:993
+```
+```
+CONNECTED(00000003)
+depth=2 O = Digital Signature Trust Co., CN = DST Root CA X3
+verify return:1
+depth=1 C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
+verify return:1
+depth=0 CN = mail.example.com
+verify return:1
+---
+Certificate chain
+ 0 s:CN = mail.example.com
+   i:C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
+ 1 s:C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
+   i:O = Digital Signature Trust Co., CN = DST Root CA X3
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIFYjCCBEqgAwIBAgISAxXZeGDOdodqxT4UhxwNc/6yMA0GCSqGSIb3DQEBCwUA
+MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD
+ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0yMDA2MTAxNjAwMDVaFw0y
+MDA5MDgxNjAwMDVaMB8xHTAbBgNVBAMTFHRlc3Quc2lsaWNvbmhpbGxzLmNvMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy+pcYHNQKOCe/VqzM4lNpnh8
+725ApwmNr2UlB8j6eB2dMTI3y4TO5hdOto1YmLXU+KMTjYMlPGcNM4n3aetDccVH
+QVHYCPx0Bup9zhQg9kr/wTxXkK24QLKYfsY/WbavnfIG2VQjrTqx8l6sZ6zh0Dnk
+MySFXXfsTpvW5eCzxzxuVPZfAIvIqx085XwlWYJ0EEkR86rI78F8+m13RJwufNz5
+P6SLCWyBDeGyX86M1LYPIgw18XZHBNNuWx3x2AK5wQbIcc1/RKmVc3NgKkf5EXr9
+jtaPzhPpr5vqrultt+BGlOJoqds8MDtg8rrYtEpl1o5YQzKRbSzoTgdD4/ukFwID
+AQABo4ICazCCAmcwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+BggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBTEW5ZE870KtGjlAZaj
+SjHRjtFcWzAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBvBggrBgEF
+BQcBAQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5sZXRzZW5j
+cnlwdC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5sZXRzZW5j
+cnlwdC5vcmcvMB8GA1UdEQQYMBaCFHRlc3Quc2lsaWNvbmhpbGxzLmNvMEwGA1Ud
+IARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEBMCgwJgYIKwYBBQUHAgEWGmh0
+dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBgYKKwYBBAHWeQIEAgSB9wSB9ADy
+AHcAXqdz+d9WwOe1Nkh90EngMnqRmgyEoRIShBh1loFxRVgAAAFynyyvJgAABAMA
+SDBGAiEA1tdH0cgg5v0/Ricjg3sDs1xAJNdv136kYu2x1kxf3vUCIQDhC7Bwf+ox
+vo5LzLsqdyI1c6gGWDM/lADggl9nHjtuOAB3ALIeBcyLos2KIE6HZvkruYolIGdr
+2vpw57JJUy3vi5BeAAABcp8srxEAAAQDAEgwRgIhAOhX6wmVg7T+lvzbKYcaVf92
+GHGJ1eao/UFStdc4VKFzAiEA0x+p6CU//x5J97CME+85nI9Rw++mTtKNJbm5gKcV
+XdcwDQYJKoZIhvcNAQELBQADggEBAAWTVlFwPCCiKA5jP0H1jgtOumpqHkGVPo0o
+xPv9k47EBh6UnU+L5W2RtJjAWcZF1U75pR3zQMXk0TSDtxI22dbQH5aYkYaKYWYU
+AlXS5PdauSnKI1Fb1OB8Gn13U4z9lihyHC0ylYcoJYg5lh/cpRHwEErpJS5j0rKL
+gFYgzt+P94BYROW6KBnFCLr6RLM9SfwTEX4+f2l5dqpFOMc9Im6tAdyHCOPnkkdq
+GA3TAJzNDmFhf26DLfqRS6IzfBOgIleCJ/qGNc5G+hLAO8/4gT3ZkHbKwcW8LIDM
+xWz91SqRjdsILDV9hLT/9G1uWlliqYSbeGWE8StA2gyWbo+X8mw=
+-----END CERTIFICATE-----
+subject=CN = mail.example.com
+
+issuer=C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
+
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Peer signature type: RSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 3220 bytes and written 415 bytes
+Verification: OK
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 56FBA976FFC4E8F6C9495D8465DF4769442917E575E85405E7BFCB761764CA64
+    Session-ID-ctx: 
+    Master-Key: 991FD5BF3BA4284AC21534127FB7D477F17BCF39DBEA6C51F4ED70473C006BE1FBEA00F379147B240FE268ABBE39DDDA
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - e0 77 c3 48 a2 e0 91 f2-d0 d9 5f 49 f1 cb 06 3b   .w.H......_I...;
+    0010 - 4a 02 e6 1b 56 5c 3b e8-42 6f 70 fd d0 bb 34 0d   J...V\;.Bop...4.
+    0020 - c3 8e 7e 73 91 fd 79 2b-64 48 7d 1a 8d 49 ab f1   ..~s..y+dH}..I..
+    0030 - 91 52 68 c2 d7 23 d3 53-69 42 87 db 5b d0 ce 39   .Rh..#.SiB..[..9
+    0040 - 43 c9 40 08 bc 4f 5c df-54 8b 1b dd ed 3c 64 6a   C.@..O\.T....<dj
+    0050 - f4 d2 b3 7b c1 b7 41 5e-3a 25 47 74 33 91 af e3   ...{..A^:%Gt3...
+    0060 - a9 0f f4 05 cc 4f 6e ca-cd d8 c0 68 09 3b 09 25   .....On....h.;.%
+    0070 - 82 85 fb 4b bd 61 b7 94-b6 00 ef 21 80 6a 18 8d   ...K.a.....!.j..
+    0080 - 79 69 02 ff e9 bc 6c ef-0b 78 bb 85 ca d1 97 92   yi....l..x......
+    0090 - bf 0f 46 69 b5 27 eb 9d-e9 bf c1 14 c1 eb f5 da   ..Fi.'..........
+    00a0 - 92 48 e5 b2 c3 ac 40 b7-2a c5 43 97 17 07 65 50   .H....@.*.C...eP
+    00b0 - 1f 21 75 04 e8 1b 4a 94-c2 91 6d 7c cc 37 73 cc   .!u...J...m|.7s.
+
+    Start Time: 1591882065
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+    Extended master secret: yes
+---
+* OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot ready.
+```
+---
+```
+. LOGIN hello world
+```
