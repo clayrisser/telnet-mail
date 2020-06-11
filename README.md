@@ -17,7 +17,8 @@ Escape character is '^]'.
 220 mail.example.com ESMTP Postfix (Debian)
 ```
 
-**telnet**
+***
+---
 ```
 EHLO localhost
 ```
