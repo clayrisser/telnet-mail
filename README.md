@@ -6,6 +6,8 @@
 
 ### SMTP 25
 
+#### Open connection
+
 ```
 telnet mail.example.com 25
 ```
@@ -31,7 +33,9 @@ EHLO localhost
 250-8BITMIME
 250 DSN
 ```
----
+
+#### Authenticate
+
 ```
 AUTH LOGIN
 ```
@@ -52,7 +56,9 @@ d29ybGQ=
 ```
 235 2.7.0 Authentication successful
 ```
----
+
+#### Send email
+
 ```
 MAIL FROM: email@example.com
 ```
@@ -83,7 +89,9 @@ world
 ```
 250 2.0.0 Ok: queued as 941731C4
 ```
----
+
+#### Close connection
+
 ```
 QUIT
 ```
@@ -94,6 +102,8 @@ Connection closed by foreign host.
 
 
 ### SMTP 587
+
+#### Open connection
 
 ```
 openssl s_client -starttls smtp -crlf -connect mail.example.com:587
@@ -210,7 +220,9 @@ EHLO localhost
 250-8BITMIME
 250 DSN
 ```
----
+
+#### Authenticate
+
 ```
 AUTH LOGIN
 ```
@@ -231,7 +243,9 @@ d29ybGQ=
 ```
 235 2.7.0 Authentication successful
 ```
----
+
+#### Send email
+
 ```
 MAIL FROM: email@example.com
 ```
@@ -262,7 +276,9 @@ world
 ```
 250 2.0.0 Ok: queued as 941731C4
 ```
----
+
+#### Close connection
+
 ```
 QUIT
 ```
@@ -275,6 +291,8 @@ Connection closed by foreign host.
 
 ### IMAP 143
 
+#### Open connection
+
 ```
 telnet mail.example.com 143
 ```
@@ -284,12 +302,16 @@ Connected to mail.example.com.
 Escape character is '^]'.
 * OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ STARTTLS LOGINDISABLED] Dovecot ready.
 ```
----
+
+#### Authenticate
+
 ```
 . LOGIN hello world
 ```
 
 ### IMAP 993
+
+#### Open connection
 
 ```
 openssl s_client -connect mail.example.com:993
@@ -391,7 +413,9 @@ SSL-Session:
 ---
 * OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot ready.
 ```
----
+
+#### Authenticate
+
 ```
 . LOGIN hello world
 ```
