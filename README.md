@@ -4,6 +4,18 @@
 
 ## SMTP
 
+#### Encode username
+
+```sh
+perl -MMIME::Base64 -e 'print encode_base64("hello");'
+```
+
+#### Encode password
+
+```sh
+perl -MMIME::Base64 -e 'print encode_base64("world");'
+```
+
 ### SMTP 25
 
 #### Open connection
