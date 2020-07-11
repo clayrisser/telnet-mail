@@ -435,3 +435,95 @@ SSL-Session:
 ```
 . OK [CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS BINARY MOVE SNIPPET=FUZZY LITERAL+ NOTIFY SPECIAL-USE] Logged in
 ```
+
+#### List Folders
+
+```
+. LIST "" "*"
+```
+
+```
+* LIST (\HasNoChildren \Trash) "." Trash
+* LIST (\HasNoChildren \UnMarked \Sent) "." Sent
+* LIST (\HasNoChildren \UnMarked \Junk) "." Junk
+* LIST (\HasNoChildren \Drafts) "." Drafts
+* LIST (\HasNoChildren \UnMarked) "." Archive
+* LIST (\HasNoChildren) "." INBOX
+. OK List completed (0.001 + 0.000 secs).
+```
+
+
+#### Get Inbox
+
+```
+. EXAMINE INBOX
+```
+
+```
+* FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+* OK [PERMANENTFLAGS ()] Read-only mailbox.
+* 0 EXISTS
+* 0 RECENT
+* OK [UIDVALIDITY 1594507084] UIDs valid
+* OK [UIDNEXT 1] Predicted next UID
+* OK [HIGHESTMODSEQ 1] Highest
+. OK [READ-ONLY] Examine completed (0.002 + 0.000 + 0.001 secs).
+```
+
+
+#### Get Drafts
+
+```
+. EXAMINE Drafts
+```
+
+```
+* OK [CLOSED] Previous mailbox closed.
+* FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+* OK [PERMANENTFLAGS ()] Read-only mailbox.
+* 1 EXISTS
+* 0 RECENT
+* OK [UIDVALIDITY 1594507085] UIDs valid
+* OK [UIDNEXT 25] Predicted next UID
+* OK [HIGHESTMODSEQ 69] Highest
+. OK [READ-ONLY] Examine completed (0.001 + 0.000 secs).
+```
+
+#### Get First Draft
+
+```
+. FETCH 1 BODY[]
+```
+
+```
+* 1 FETCH (BODY[] {919}
+MIME-Version: 1.0
+Date: Sat, 11 Jul 2020 23:18:11 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_201_134599085.1594509491"
+X-Mailer: RainLoop/1.13.0
+From: email@example.com
+Message-ID: <b41fa1b8d04f482c5c70d05cb4da791f@siliconhills.co>
+Subject: draft
+To: someone@example.com
+
+
+----=_RainLoop_201_134599085.1594509491
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+I am a draft
+
+----=_RainLoop_201_134599085.1594509491
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;"><=
+br>I am a draft<signature></signature></div></body></html>
+
+----=_RainLoop_201_134599085.1594509491--
+)
+. OK Fetch completed (0.001 + 0.000 secs).
+```
