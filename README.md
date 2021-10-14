@@ -7,7 +7,7 @@
 #### Encode username
 
 ```sh
-perl -MMIME::Base64 -e 'print encode_base64("hello");'
+perl -MMIME::Base64 -e 'print encode_base64("hello\@example.com");'
 ```
 
 #### Encode password
