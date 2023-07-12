@@ -2,6 +2,8 @@
 
 > test smtp, imap and pop3 with telnet
 
+![](assets/telnet-mail.png)
+
 ## SMTP
 
 #### Encode username
